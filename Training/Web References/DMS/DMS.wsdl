@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewDoc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="folderId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="docName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPublish" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileGroupId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DOC_SERIAL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="docClass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DOC_COMMENT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PUBLISH_UNIT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewDocResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddNewDocResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewDocSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNewDoc" />
+  </wsdl:message>
+  <wsdl:message name="AddNewDocSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNewDocResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddNewDocHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="folderId" type="s:string" />
+    <wsdl:part name="docName" type="s:string" />
+    <wsdl:part name="fileName" type="s:string" />
+    <wsdl:part name="isPublish" type="s:string" />
+    <wsdl:part name="fileGroupId" type="s:string" />
+    <wsdl:part name="keyword" type="s:string" />
+    <wsdl:part name="DOC_SERIAL" type="s:string" />
+    <wsdl:part name="docClass" type="s:string" />
+    <wsdl:part name="DOC_COMMENT" type="s:string" />
+    <wsdl:part name="account" type="s:string" />
+    <wsdl:part name="version" type="s:string" />
+    <wsdl:part name="PUBLISH_UNIT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddNewDocHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddNewDocHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="folderId" type="s:string" />
+    <wsdl:part name="docName" type="s:string" />
+    <wsdl:part name="fileName" type="s:string" />
+    <wsdl:part name="isPublish" type="s:string" />
+    <wsdl:part name="fileGroupId" type="s:string" />
+    <wsdl:part name="keyword" type="s:string" />
+    <wsdl:part name="DOC_SERIAL" type="s:string" />
+    <wsdl:part name="docClass" type="s:string" />
+    <wsdl:part name="DOC_COMMENT" type="s:string" />
+    <wsdl:part name="account" type="s:string" />
+    <wsdl:part name="version" type="s:string" />
+    <wsdl:part name="PUBLISH_UNIT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddNewDocHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="DMSSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewDoc">
+      <wsdl:input message="tns:AddNewDocSoapIn" />
+      <wsdl:output message="tns:AddNewDocSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DMSHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewDoc">
+      <wsdl:input message="tns:AddNewDocHttpGetIn" />
+      <wsdl:output message="tns:AddNewDocHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DMSHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewDoc">
+      <wsdl:input message="tns:AddNewDocHttpPostIn" />
+      <wsdl:output message="tns:AddNewDocHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DMSSoap" type="tns:DMSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewDoc">
+      <soap:operation soapAction="http://tempuri.org/AddNewDoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMSSoap12" type="tns:DMSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewDoc">
+      <soap12:operation soapAction="http://tempuri.org/AddNewDoc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMSHttpGet" type="tns:DMSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewDoc">
+      <http:operation location="/AddNewDoc" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMSHttpPost" type="tns:DMSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewDoc">
+      <http:operation location="/AddNewDoc" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DMS">
+    <wsdl:port name="DMSSoap" binding="tns:DMSSoap">
+      <soap:address location="http://localhost/UOF_Twinhead/CDS/WS/DMS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMSSoap12" binding="tns:DMSSoap12">
+      <soap12:address location="http://localhost/UOF_Twinhead/CDS/WS/DMS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMSHttpGet" binding="tns:DMSHttpGet">
+      <http:address location="http://localhost/UOF_Twinhead/CDS/WS/DMS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMSHttpPost" binding="tns:DMSHttpPost">
+      <http:address location="http://localhost/UOF_Twinhead/CDS/WS/DMS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

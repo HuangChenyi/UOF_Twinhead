@@ -59,6 +59,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\UOF24\bin\Ede.Uof.Utility.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Ede.Uof.Utility.FileCenter, Version=24.0.8398.52406, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\UOF24\Bin\Ede.Uof.Utility.FileCenter.dll</HintPath>
+    </Reference>
     <Reference Include="Ede.Uof.Utility.Log, Version=22.0.8050.27472, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\UOF24\bin\Ede.Uof.Utility.Log.dll</HintPath>
@@ -82,6 +86,8 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -106,8 +112,14 @@
     <Compile Include="Trigger\DemoForm\EndFormTrigger.cs" />
     <Compile Include="Trigger\DemoForm\OnFlowFormTrigger.cs" />
     <Compile Include="Trigger\DemoForm\StartFormTrigger.cs" />
+    <Compile Include="Trigger\DocForm\EndFormTrigger.cs" />
     <Compile Include="UCO\AutoNbr.cs" />
     <Compile Include="UCO\DemoUCO.cs" />
+    <Compile Include="Web References\DMS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -129,8 +141,31 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Web References\DMS\DMS.wsdl" />
+    <None Include="Web References\DMS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost/UOF_Twinhead/CDS/WS/DMS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DMS\</RelPath>
+      <UpdateFromURL>http://localhost/UOF_Twinhead/CDS/WS/DMS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Training_DMS_DMS</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\DMS\DMS.disco" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

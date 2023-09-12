@@ -12,38 +12,38 @@ public partial class CDS_XML_Default : Ede.Uof.Utility.Page.BasePage
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        
-        //<FieldValue>
-        //  <Item id='A01' value='V01' />
-        //  <Item id='A02' value='V02' >InnerText</Item>
-        //  <Item id='A03' value='V03' />
-        //<FieldValue>
+
+        //<ContactList>
+        //  <Contact name='A01' Phone='V01' />
+        //  <Contact name='A02' Phone='V02' />
+        //  <Contact name='A03' Phone='V03' />
+        //<ContactList>
 
         XmlDocument xmlDoc = new XmlDocument();
-        //<FieldValue/>
-        XmlElement fieldValueElement = xmlDoc.CreateElement("FieldValue");
+        //<ContactList/>
+        XmlElement ContactListElement = xmlDoc.CreateElement("ContactList");
 
         //  <Item id='A01' value='V01' ></Iteem>        //
-        XmlElement item01Element = xmlDoc.CreateElement("Item");
-        item01Element.SetAttribute("id" , "A01");
-        item01Element.SetAttribute("value", "V01");
+        XmlElement Contact01Element = xmlDoc.CreateElement("Contact");
+        Contact01Element.SetAttribute("name", "Tony");
+        Contact01Element.SetAttribute("Phone", "0912345678");
 
         //  <Item id='A02' value='V02' >InnerText</Iteem>        //
-        XmlElement item02Element = xmlDoc.CreateElement("Item");
-        item02Element.SetAttribute("id", "A02");
-        item02Element.SetAttribute("value", "V02");
-        item02Element.InnerText = "InnerTextxxxxx";
+        XmlElement Contact02Element = xmlDoc.CreateElement("Contact");
+        Contact02Element.SetAttribute("name", "Wang");
+        Contact02Element.SetAttribute("Phone", "0987654321");
+    
 
         //  <Item id='A03' value='V03' ></Iteem>        //
-        XmlElement item03Element = xmlDoc.CreateElement("Item");
-        item03Element.SetAttribute("id", "A03");
-        item03Element.SetAttribute("value", "V<0>3");
+        XmlElement Contact03Element = xmlDoc.CreateElement("Contact");
+        Contact03Element.SetAttribute("name", "Mary");
+        Contact03Element.SetAttribute("Phone", "0912121212");
 
-        fieldValueElement.AppendChild(item01Element);
-        fieldValueElement.AppendChild(item02Element);
-        fieldValueElement.AppendChild(item03Element);
+        ContactListElement.AppendChild(Contact01Element);
+        ContactListElement.AppendChild(Contact02Element);
+        ContactListElement.AppendChild(Contact03Element);
 
-        xmlDoc.AppendChild(fieldValueElement);
+        xmlDoc.AppendChild(ContactListElement);
 
         txtXML.Text = xmlDoc.OuterXml;
 
@@ -61,6 +61,10 @@ public partial class CDS_XML_Default : Ede.Uof.Utility.Page.BasePage
         //  <Item id='A03' value='V03' />
         //<FieldValue>
 
-        txtValue.Text = xmlDoc.SelectSingleNode(string.Format("./FieldValue/Item[@id='{0}']", txtID.Text)).Attributes["value"].Value;
+
+
+        txtValue.Text = xmlDoc.SelectSingleNode
+            ($"./FieldValue/Item[@id='{txtID.Text}']").
+            Attributes["value"].Value;
     }
 }
